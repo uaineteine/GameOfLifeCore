@@ -52,5 +52,14 @@ namespace GameOfLife
                 Console.Clear();
             }
         }
+
+        public void SkipSimulate(int noSteps)
+        {
+            for (int i = 0; i < noSteps; i++)
+            {
+                stepSimulate();
+            }
+            Print();
+        }
     }
 }

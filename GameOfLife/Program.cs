@@ -9,7 +9,7 @@ namespace GameOfLife
             Console.WriteLine("Hello World!");
 
             //load it
-            gamelife ca = new gamelife(20, 20);
+            gamelife ca = new gamelife(35, 35);
 
             //get user input
             int noSteps = 0;
@@ -19,7 +19,7 @@ namespace GameOfLife
             noSteps = Convert.ToInt32(res);
 
             //simulate
-            ca.Simulate(noSteps);
+            ca.SkipSimulate(noSteps);
 
             Console.WriteLine("Press enter to exit");
             Console.ReadLine();
