@@ -13,7 +13,7 @@ namespace GameOfLife
 
         public const int nNeighs = 8;
         coord[] neighlist = new coord[nNeighs] { new coord(-1, 0), new coord(0, 1), new coord(1, 0), new coord(0, -1),
-            new coord(-1, -1), new coord(1, -1), new coord(-1, 1), new coord(1, -1)};
+            new coord(-1, -1), new coord(1, -1), new coord(-1, 1), new coord(1, 1)};
 
         void checkLoop(ref coord p)
         {
