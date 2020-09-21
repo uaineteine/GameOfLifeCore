@@ -4,11 +4,11 @@ A C# .NET core project automaton of Conway's Game of Life. Seemless boundaries a
 
 ## Getting Started
 
-See the program.cs file for execution and simulation of the cellular maps.
+See the [program.cs](GameOfLife/program.cs) file for execution and simulation of the cellular maps.
 
 ## Version
 
-##### alpha 1.1
+##### beta 1.0
 
 See the [changelog](changelog.txt) for details.
 
