@@ -11,11 +11,11 @@ namespace GameOfLife
             //add things here
         }
 
-        public void Simulate(int noSteps)
+        public void Simulate(int noSteps, bool printChanges)
         {
             for (int i = 0; i < noSteps; i++)
             {
-                Print();
+                Print(printChanges);
                 stepSimulate();
 
                 Console.WriteLine("Press enter to continue");
@@ -24,13 +24,13 @@ namespace GameOfLife
             }
         }
 
-        public void SkipSimulate(int noSteps)
+        public void SkipSimulate(int noSteps, bool printChanges)
         {
             for (int i = 0; i < noSteps; i++)
             {
                 stepSimulate();
             }
-            Print();
+            Print(printChanges);
         }
     }
 }
