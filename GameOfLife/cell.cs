@@ -14,12 +14,17 @@ namespace GameOfLife
         }
         public bool alive;
         protected bool changed;
+        public bool HasChanged()
+        {
+            return changed;
+        }
         protected bool previous;
 
         public void update(bool aliv)
         {
+            previous = alive;
             alive = aliv;
-            changed = (alive == previous);
+            changed = (alive != previous);
         }
     }
 }

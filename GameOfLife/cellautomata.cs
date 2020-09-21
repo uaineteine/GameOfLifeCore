@@ -6,10 +6,12 @@ namespace GameOfLife
 {
     public class cellautomata : map
     {
-        public cellautomata(int w, int h) : base(w, h)
+        public cellautomata(int w, int h, bool wrap) : base(w, h)
         {
-            //other stuff here
+            wrapping = wrap;
         }
+
+        protected bool wrapping;    //if the edges should be wrapped
 
         public const int nNeighs = 8;
         coord[] neighlist = new coord[nNeighs] { new coord(-1, 0), new coord(0, 1), new coord(1, 0), new coord(0, -1),
@@ -78,6 +80,10 @@ namespace GameOfLife
                         if (nalive == 3)
                         {
                             grid[x][y].update(true);
+                        }
+                        else
+                        {
+                            grid[x][y].update(false);
                         }
                     }
                 }

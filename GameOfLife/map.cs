@@ -61,19 +61,32 @@ namespace GameOfLife
             return boundCheck(p.x, p.y);
         }
 
-        public void Print()
+        public void Print(bool printChanges)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     if (grid[x][y].alive)
+                    {
+                        if (printChanges)
+                            if (grid[x][y].HasChanged())
+                                Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write(1);
+                    }
                     else
+                    {
+                        if (printChanges)
+                            if (grid[x][y].HasChanged())
+                                Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write(0);
+                    }
                 }
                 Console.Write(System.Environment.NewLine);
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
