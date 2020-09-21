@@ -6,7 +6,7 @@ namespace GameOfLife
 {
     public class gamelife : cellautomata
     {
-        public gamelife(int w, int h) : base(w, h)
+        public gamelife(int w, int h, bool wrap) : base(w, h, wrap)
         {
             //add things here
         }

@@ -1,8 +1,9 @@
 --Beta 1.0--	21/09/2020
 New features:
--Coloured printing of changes over each step
+-Coloured printing of changes over each step an option given
 ---green for alive
 ---red for dead
+-Wrapping of edges is now optional
 
 Fixes:
 -Fix of change variable typo in declaration
