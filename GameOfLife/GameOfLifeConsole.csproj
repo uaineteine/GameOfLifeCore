@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="cell.cs" />
+    <Compile Remove="cellautomata.cs" />
+    <Compile Remove="coord.cs" />
+    <Compile Remove="gamelife.cs" />
+    <Compile Remove="map.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="LICENSE" />
+    <None Remove="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLifeCore\GameOfLifeCore.csproj" />
+  </ItemGroup>
+
+</Project>
