@@ -4,6 +4,7 @@ New features:
 ---green for alive
 ---red for dead
 -Wrapping of edges is now optional
+-Extinct method added in, unused
 
 Fixes:
 -Fix of change variable typo in declaration

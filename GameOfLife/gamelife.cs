@@ -32,5 +32,20 @@ namespace GameOfLife
             }
             Print(printChanges);
         }
+
+        public bool CheckExtinct()
+        {
+            bool extinct = false;
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (grid[x][y].alive)
+                        return true;
+                }
+            }
+            //no alive cells found
+            return extinct;
+        } 
     }
 }
