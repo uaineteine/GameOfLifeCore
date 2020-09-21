@@ -79,6 +79,10 @@ namespace GameOfLife
                         {
                             grid[x][y].update(true);
                         }
+                        else
+                        {
+                            grid[x][y].update(false);
+                        }
                     }
                 }
             }

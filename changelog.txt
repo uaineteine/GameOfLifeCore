@@ -1,3 +1,15 @@
+--Beta 1.0--	21/09/2020
+New features:
+-Coloured printing of changes over each step
+---green for alive
+---red for dead
+
+Fixes:
+-Fix of change variable typo in declaration
+
+Changes:
+-step simulate method moved from game of life to cellautomata class
+
 --Alpha 1.1--	21/09/2020
 New features:
 -previous state stored in cell for history tracking

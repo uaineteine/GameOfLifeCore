@@ -20,7 +20,8 @@ namespace GameOfLife
             Console.WriteLine();
 
             //simulate
-            ca.SkipSimulate(noSteps);
+            //ca.SkipSimulate(noSteps);
+            ca.Simulate(noSteps);
 
             Console.WriteLine("Press enter to exit");
             Console.ReadLine();
