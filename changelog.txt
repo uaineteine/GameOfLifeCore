@@ -1,0 +1,6 @@
+--Alpha 1.1--	21/09/2020
+New features:
+-previous state stored in cell for history tracking
+
+Changes:
+-step simulate method moved from game of life to cellautomata class

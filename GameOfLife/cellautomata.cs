@@ -53,5 +53,35 @@ namespace GameOfLife
             }
             return sum;
         }
+
+        public void stepSimulate()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int nalive = countAliveNeighbours(new coord(x, y));
+                    if (grid[x][y].alive)
+                    {
+                        if (nalive == 2 | nalive == 3)      //survives
+                        {
+                            //keep alive
+                            grid[x][y].update(true);
+                        }
+                        else                                //dies
+                        {
+                            grid[x][y].update(false);
+                        }
+                    }
+                    else  //dead cell at the mo
+                    {
+                        if (nalive == 3)
+                        {
+                            grid[x][y].update(true);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

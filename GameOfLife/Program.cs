@@ -17,6 +17,7 @@ namespace GameOfLife
             Console.WriteLine();
             string res = Console.ReadLine();
             noSteps = Convert.ToInt32(res);
+            Console.WriteLine();
 
             //simulate
             ca.SkipSimulate(noSteps);
