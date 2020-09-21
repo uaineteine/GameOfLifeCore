@@ -1,6 +1,6 @@
 # GameOfLifeDotnetCore
 
-A C# .NET core project automaton of Conway's Game of Life.
+A C# .NET standard project automaton of Conway's Game of Life.
 
 Features options:
 * Seemless boundaries that can be used to allow wrapping.

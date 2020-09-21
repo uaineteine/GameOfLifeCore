@@ -1,3 +1,10 @@
+--Beta 1.0.1--	21/09/2020
+Changes:
+- .net standard conversion of project to dll file
+
+Fixes:
+-Removed duplicate files
+
 --Beta 1.0--	21/09/2020
 New features:
 -Coloured printing of changes over each step an option given
