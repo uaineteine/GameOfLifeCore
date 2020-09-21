@@ -8,7 +8,9 @@ See the program.cs file for execution and simulation of the cellular maps.
 
 ## Version
 
-##### alpha 1.0
+##### alpha 1.1
+
+See the [changelog](changelog.txt) for details.
 
 ## Authors
 

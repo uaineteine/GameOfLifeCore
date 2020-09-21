@@ -9,7 +9,17 @@ namespace GameOfLife
         public cell(bool aliv)
         {
             alive = aliv;
+            changed = false;
+            previous = alive;
         }
         public bool alive;
+        protected bool changed;
+        protected bool previous;
+
+        public void update(bool aliv)
+        {
+            alive = aliv;
+            changed = (alive == previous);
+        }
     }
 }
