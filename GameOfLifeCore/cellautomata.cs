@@ -9,13 +9,10 @@ namespace GameOfLife
 {
     public class cellautomata : map
     {
-        public cellautomata(int w, int h, bool wrap, float cStartAlive, int kind) : base(w, h, cStartAlive)
+        public cellautomata(int w, int h, bool wrap, float cStartAlive) : base(w, h, cStartAlive)
         {
             wrapping = wrap;
-            type = kind;
         }
-
-        private int type = 0;
 
         protected bool wrapping;    //if the edges should be wrapped
 
@@ -66,83 +63,73 @@ namespace GameOfLife
             return sum;
         }
 
-        public void stepSimulate()
+        public void Simulate(int noSteps, bool printChanges)
         {
-            if (type == 0) //game of life
+            for (int i = 0; i < noSteps; i++)
             {
-                int[,] neighs = new int[width, height];
-                for (int x = 0; x < width; x++)
+                Print(printChanges);
+                stepSimulate();
+
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }
+
+        public void SkipSimulate(int noSteps, bool printChanges)
+        {
+            for (int i = 0; i < noSteps; i++)
+            {
+                stepSimulate();
+            }
+            Print(printChanges);
+        }
+
+        public bool CheckExtinct()
+        {
+            bool extinct = false;
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
                 {
-                    for (int y = 0; y < height; y++)
-                    {
-                        neighs[x, y] = countAliveNeighbours(new coord(x, y));
-                    }
-                }
-                for (int x = 0; x < width; x++)
-                {
-                    Parallel.For(0, height,
-                   y =>
-                   {
-                       int nalive = neighs[x, y];
-                       if (grid[x][y].alive)
-                       {
-                           if (nalive == 2 | nalive == 3)      //survives
-                           {
-                               //keep alive
-                               grid[x][y].update(true);
-                           }
-                           else                                //dies
-                           {
-                               aliveCount -= 1;
-                               grid[x][y].update(false);
-                           }
-                       }
-                       else  //dead cell at the mo
-                       {
-                           if (nalive == 3)
-                           {
-                               aliveCount += 1;
-                               grid[x][y].update(true);
-                           }
-                           else
-                           {
-                               grid[x][y].update(false);
-                           }
-                       }
-                   });
+                    if (grid[x][y].alive)
+                        return true;
                 }
             }
-            else //rapid 1
+            //no alive cells found
+            return extinct;
+        }
+
+        public void stepSimulate()
+        {
+            for (int x = 0; x < width; x++)
             {
-                for (int x = 0; x < width; x++)
+                for (int y = 0; y < height; y++)
                 {
-                    for (int y = 0; y < height; y++)
+                    int nalive = countAliveNeighbours(new coord(x, y));
+                    if (grid[x][y].alive)
                     {
-                        int nalive = countAliveNeighbours(new coord(x, y));
-                        if (grid[x][y].alive)
+                        if (nalive == 2 | nalive == 3)      //survives
                         {
-                            if (nalive == 2 | nalive == 3)      //survives
-                            {
-                                //keep alive
-                                grid[x][y].update(true);
-                            }
-                            else                                //dies
-                            {
-                                aliveCount -= 1;
-                                grid[x][y].update(false);
-                            }
+                            //keep alive
+                            grid[x][y].update(true);
                         }
-                        else  //dead cell at the mo
+                        else                                //dies
                         {
-                            if (nalive == 3)
-                            {
-                                aliveCount += 1;
-                                grid[x][y].update(true);
-                            }
-                            else
-                            {
-                                grid[x][y].update(false);
-                            }
+                            aliveCount -= 1;
+                            grid[x][y].update(false);
+                        }
+                    }
+                    else  //dead cell at the mo
+                    {
+                        if (nalive == 3)
+                        {
+                            aliveCount += 1;
+                            grid[x][y].update(true);
+                        }
+                        else
+                        {
+                            grid[x][y].update(false);
                         }
                     }
                 }

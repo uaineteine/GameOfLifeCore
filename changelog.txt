@@ -2,6 +2,9 @@
 New Features:
 * Added parallel loop for the steps
 
+Changes:
+* Inheritance cleanup
+
 Fixes:
 * Doesn't override new map until after looping in step
 
