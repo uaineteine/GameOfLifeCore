@@ -62,6 +62,7 @@ namespace GameOfLife
 
         public void stepSimulate()
         {
+            List<List<cell>> newMap = grid;
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
@@ -72,12 +73,12 @@ namespace GameOfLife
                         if (nalive == 2 | nalive == 3)      //survives
                         {
                             //keep alive
-                            grid[x][y].update(true);
+                            newMap[x][y].update(true);
                         }
                         else                                //dies
                         {
                             aliveCount -= 1;
-                            grid[x][y].update(false);
+                            newMap[x][y].update(false);
                         }
                     }
                     else  //dead cell at the mo
@@ -85,15 +86,16 @@ namespace GameOfLife
                         if (nalive == 3)
                         {
                             aliveCount += 1;
-                            grid[x][y].update(true);
+                            newMap[x][y].update(true);
                         }
                         else
                         {
-                            grid[x][y].update(false);
+                            newMap[x][y].update(false);
                         }
                     }
                 }
             }
+            grid = newMap;
         }
     }
 }
