@@ -29,7 +29,7 @@ namespace GameOfLife
             Console.WriteLine();
 
             //load it
-            gamelife ca = new gamelife(35, 35, wraped);
+            gamelife ca = new gamelife(35, 35, wraped, 0.2f);
 
             //simulate
             //ca.SkipSimulate(noSteps, printChanges);

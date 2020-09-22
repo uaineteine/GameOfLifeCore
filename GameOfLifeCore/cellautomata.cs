@@ -6,7 +6,7 @@ namespace GameOfLife
 {
     public class cellautomata : map
     {
-        public cellautomata(int w, int h, bool wrap) : base(w, h)
+        public cellautomata(int w, int h, bool wrap, float cStartAlive) : base(w, h, cStartAlive)
         {
             wrapping = wrap;
         }
@@ -36,7 +36,11 @@ namespace GameOfLife
                 p.y += height;
             }
         }
-        
+
+        public float aliveFac()
+        {
+            return (float)aliveCount / (float)area;
+        }
 
         protected int countAliveNeighbours(coord pos)
         {
@@ -72,6 +76,7 @@ namespace GameOfLife
                         }
                         else                                //dies
                         {
+                            aliveCount -= 1;
                             grid[x][y].update(false);
                         }
                     }
@@ -79,6 +84,7 @@ namespace GameOfLife
                     {
                         if (nalive == 3)
                         {
+                            aliveCount += 1;
                             grid[x][y].update(true);
                         }
                         else
