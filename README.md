@@ -2,9 +2,9 @@
 
 A C# .NET standard project automaton of Conway's Game of Life.
 
-![Example](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/749667d6dce727d20386ea27fadb33d9cf8287c7/Example/OrangeTheme.png "Graphic Example")
+![Example](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/1986ffa1a182a6f749c86d0929092eeb9c4c0317/Example/OrangeTheme.png "Graphic Example")
 
-![ConsoleExample](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/749667d6dce727d20386ea27fadb33d9cf8287c7/Example/ExampleConsole.png "Console Example")
+![ConsoleExample](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/1986ffa1a182a6f749c86d0929092eeb9c4c0317/Example/ExampleConsole.png "Console Example")
 
 ##### Features:
 * Seemless boundaries that can be used to allow wrapping.
