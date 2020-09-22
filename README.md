@@ -2,9 +2,14 @@
 
 A C# .NET standard project automaton of Conway's Game of Life.
 
-Features options:
+![Example](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/749667d6dce727d20386ea27fadb33d9cf8287c7/Example/OrangeTheme.png "Graphic Example")
+![ConsoleExample](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/749667d6dce727d20386ea27fadb33d9cf8287c7/Example/ExampleConsole.png "Console Example")
+
+Features:
 * Seemless boundaries that can be used to allow wrapping.
-* Coloured changes
+* Colour changes
+* History tracking
+* TODO: Multi-threaded
 
 ## Getting Started
 
