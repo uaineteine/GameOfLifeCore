@@ -1,5 +1,6 @@
 --Beta 1.3--	23/09/2020
 New Features:
+* Added parallel loop for the steps
 
 Fixes:
 * Doesn't override new map until after looping in step

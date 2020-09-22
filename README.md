@@ -10,7 +10,7 @@ A C# .NET standard project automaton of Conway's Game of Life.
 * Seemless boundaries that can be used to allow wrapping.
 * Colour changes
 * History tracking
-* TODO: Multi-threaded
+* Multi-threaded
 
 ## Getting Started
 
