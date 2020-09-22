@@ -1,12 +1,14 @@
 --Beta 1.3--	23/09/2020
 New Features:
 * Added parallel loop for the steps
+* Caves algorithim added
 
 Changes:
 * Inheritance cleanup
 
 Fixes:
-* Doesn't override new map until after looping in step
+* Now the new map is overrided after calculating neighbours, not during
+* bugfix on virtual/override void for gameoflife.cs
 
 --Beta 1.2--	22/09/2020
 New Features:

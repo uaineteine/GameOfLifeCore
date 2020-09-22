@@ -100,7 +100,7 @@ namespace GameOfLife
             return extinct;
         }
 
-        public void stepSimulate()
+        public virtual void stepSimulate()
         {
             for (int x = 0; x < width; x++)
             {
