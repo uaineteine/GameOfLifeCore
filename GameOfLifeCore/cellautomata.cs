@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GameOfLife
 {
@@ -65,35 +67,35 @@ namespace GameOfLife
             List<List<cell>> newMap = grid;
             for (int x = 0; x < width; x++)
             {
-                for (int y = 0; y < height; y++)
-                {
-                    int nalive = countAliveNeighbours(new coord(x, y));
-                    if (grid[x][y].alive)
-                    {
-                        if (nalive == 2 | nalive == 3)      //survives
-                        {
-                            //keep alive
-                            newMap[x][y].update(true);
-                        }
-                        else                                //dies
-                        {
-                            aliveCount -= 1;
-                            newMap[x][y].update(false);
-                        }
-                    }
-                    else  //dead cell at the mo
-                    {
-                        if (nalive == 3)
-                        {
-                            aliveCount += 1;
-                            newMap[x][y].update(true);
-                        }
-                        else
-                        {
-                            newMap[x][y].update(false);
-                        }
-                    }
-                }
+                Parallel.For(0, height,
+                   y => {
+                       int nalive = countAliveNeighbours(new coord(x, y));
+                       if (grid[x][y].alive)
+                       {
+                           if (nalive == 2 | nalive == 3)      //survives
+                           {
+                               //keep alive
+                               newMap[x][y].update(true);
+                           }
+                           else                                //dies
+                           {
+                               aliveCount -= 1;
+                               newMap[x][y].update(false);
+                           }
+                       }
+                       else  //dead cell at the mo
+                       {
+                           if (nalive == 3)
+                           {
+                               aliveCount += 1;
+                               newMap[x][y].update(true);
+                           }
+                           else
+                           {
+                               newMap[x][y].update(false);
+                           }
+                       }
+                   });
             }
             grid = newMap;
         }
