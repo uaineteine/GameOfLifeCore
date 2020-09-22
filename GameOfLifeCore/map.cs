@@ -6,10 +6,12 @@ namespace GameOfLife
 {
     public class map
     {
-        public map(int w, int h)
+        public map(int w, int h, float cStrtAl)     //chance to start alive
         {
             width = w;
             height = h;
+            area = width * height;
+            aliveCount = 0;
             grid = new List<List<cell>>();
             for (int x = 0; x < w; x++)
             {
@@ -20,25 +22,39 @@ namespace GameOfLife
                 }
                 grid.Add(col);
             }
+            cStartAlive = cStrtAl;
 
             randomiseMap();
         }
         protected int width;
         protected int height;
+        private float cStartAlive;
         protected List<List<cell>> grid;
+        protected int aliveCount;
+        protected int area = 1;
+        public bool isAlive(coord p)
+        {
+            return grid[p.x][p.y].alive;
+        }
 
         protected void randomiseMap()
         {
+            aliveCount = 0;
             Random rndm = new Random();
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    int val = rndm.Next() % 2;
-                    if (val == 0)
+                    float val = (float)rndm.NextDouble();
+                    if (val < cStartAlive)
+                    {
                         grid[x][y].alive = false;
+                    }
                     else
+                    { 
                         grid[x][y].alive = true;
+                        aliveCount += 1;
+                    }
                 }
             }
         }
