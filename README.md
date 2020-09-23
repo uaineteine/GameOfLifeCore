@@ -19,7 +19,7 @@ See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of
 
 #### Requires projects:
 
-* (CoordLibrary)[https://bitbucket.org/uaineteinestudio/coordlibrary/] by (UaineTeine)[https://bitbucket.org/uaineteinestudio/] - A coordinate library with extra functions
+* [CoordLibrary](https://bitbucket.org/uaineteinestudio/coordlibrary/) by [UaineTeine](https://bitbucket.org/uaineteinestudio/) - A coordinate library with extra functions
 
 ## Version
 
