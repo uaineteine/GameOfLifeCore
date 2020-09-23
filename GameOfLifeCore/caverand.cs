@@ -6,7 +6,7 @@ namespace GameOfLife
 {
     public class caverand : cave
     {
-        public caverand(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive, birthlim, deathlim)
+        public caverand(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive, birthlim, deathlim, rndm)
         {
             rand = rndm;
         }
@@ -23,16 +23,11 @@ namespace GameOfLife
             {
                 int x = rand.Next() % width;
                 int y = rand.Next() % height;
-
+                
                 if (grid[x][y].alive)
                 {
                     aliveCount -= 1;
                     grid[x][y].update(false);
-                }
-                else
-                {
-                    aliveCount += 1;
-                    grid[x][y].update(true);
                 }
             }
         }

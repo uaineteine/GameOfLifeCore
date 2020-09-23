@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Coord;
 
 namespace GameOfLife
 {
@@ -37,6 +38,44 @@ namespace GameOfLife
             if (p.y < 0)
             {
                 p.y += height;
+            }
+        }
+
+        public void PlaceLine(coord p, Random rand)
+        {
+            int type = rand.Next() % 6;
+            int len = rand.Next() % 7;
+            for (int j = 0; j < len; j++)
+            {
+                coord newp = p;
+                switch(type)
+                {
+                    case 0:
+                        newp += j;
+                        break;
+
+                    case 1:
+                        newp -= j;
+                        break;
+
+                    case 2:
+                        newp.x += j;
+                        break;
+
+                    case 3:
+                        newp.x -= j;
+                        break;
+
+                    case 4:
+                        newp.y += j;
+                        break;
+
+                    case 6:
+                        newp.y -= j;
+                        break;
+                }
+                checkLoop(ref newp);
+                grid[newp.x][newp.y].update(true);
             }
         }
 

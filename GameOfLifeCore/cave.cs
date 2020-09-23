@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Coord;
 
 namespace GameOfLife
 {
     public class cave : cellautomata
     {
-        public cave(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim) : base(w, h, wrap, cStartAlive)
+        public cave(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive)
         {
             birthlimit = birthlim;
             deathlimit = deathlim;
+            rand = rndm;
         }
 
+        Random rand;
         int birthlimit;
         int deathlimit;
+        int treasureHiddenLimit = 5;
 
         //overriding
         public override void stepSimulate()
@@ -55,6 +59,11 @@ namespace GameOfLife
                        else
                        {
                            grid[x][y].update(false);
+                       }
+                       if (nalive >= treasureHiddenLimit)
+                       {
+                           //place treasure
+                           PlaceLine(new coord(x, y), rand);
                        }
                    }
                });
