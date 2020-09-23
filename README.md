@@ -10,11 +10,16 @@ A C# .NET standard project automaton of Conway's Game of Life.
 * Seemless boundaries that can be used to allow wrapping.
 * Colour changes
 * History tracking
-* TODO: Multi-threaded
+* Multi-threaded
+* Multiple cellular automata algorithms
 
 ## Getting Started
 
 See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of the cellular maps.
+
+#### Requires projects:
+
+* [CoordLibrary](https://bitbucket.org/uaineteinestudio/coordlibrary/) by [UaineTeine](https://bitbucket.org/uaineteinestudio/) - A coordinate library with extra functions
 
 ## Version
 

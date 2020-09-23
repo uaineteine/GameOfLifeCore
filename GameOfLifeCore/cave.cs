@@ -6,12 +6,19 @@ using Coord;
 
 namespace GameOfLife
 {
-    public class gamelife : cellautomata
+    public class cave : cellautomata
     {
-        public gamelife(int w, int h, bool wrap, float cStartAlive) : base(w, h, wrap, cStartAlive)
+        public cave(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive)
         {
-            //add things here
+            birthlimit = birthlim;
+            deathlimit = deathlim;
+            rand = rndm;
         }
+
+        Random rand;
+        int birthlimit;
+        int deathlimit;
+        int treasureHiddenLimit = 5;
 
         //overriding
         public override void stepSimulate()
@@ -32,20 +39,19 @@ namespace GameOfLife
                    int nalive = neighs[x, y];
                    if (grid[x][y].alive)
                    {
-                       if (nalive == 2 | nalive == 3)      //survives
-                           {
-                               //keep alive
-                               grid[x][y].update(true);
-                       }
-                       else                                //dies
-                           {
+                       if (nalive < deathlimit)            //dies
+                       {
                            aliveCount -= 1;
                            grid[x][y].update(false);
                        }
+                       else                                //survives
+                       {
+                           grid[x][y].update(true);
+                       }
                    }
                    else  //dead cell at the mo
-                       {
-                       if (nalive == 3)
+                   {
+                       if (nalive > birthlimit)
                        {
                            aliveCount += 1;
                            grid[x][y].update(true);
@@ -53,6 +59,11 @@ namespace GameOfLife
                        else
                        {
                            grid[x][y].update(false);
+                       }
+                       if (nalive >= treasureHiddenLimit)
+                       {
+                           //place treasure
+                           PlaceLine(new coord(x, y), rand);
                        }
                    }
                });
