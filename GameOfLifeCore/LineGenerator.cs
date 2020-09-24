@@ -8,13 +8,14 @@ namespace GameOfLife
 {
     public class LineGenerator : cellautomata
     {
-        protected int numLines = 10;
+        protected int numLines;
         protected int MinLen = 4;
         protected int MaxLen = 14;
-        Random r;
-        public LineGenerator(int w, int h, bool wrap, float cStartAlive) : base(w, h, wrap, cStartAlive)
+        protected Random r;
+        public LineGenerator(int w, int h, bool wrap, float cStartAlive, int nLines) : base(w, h, wrap, cStartAlive)
         {
             r = new Random();
+            numLines = nLines;
             //needs grid that is blank to begin with
             for (int x = 0; x < width; x++)
             {

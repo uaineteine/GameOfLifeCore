@@ -156,6 +156,19 @@ namespace GameOfLife
             return extinct;
         }
 
+        protected int[,] AliveNeighbourMap()
+        {
+            int[,] neighs = new int[width, height];
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    neighs[x, y] = countAliveNeighbours(new coord(x, y));
+                }
+            }
+            return neighs;
+        }
+
         public virtual void stepSimulate()
         {
             for (int x = 0; x < width; x++)

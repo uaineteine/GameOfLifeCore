@@ -23,14 +23,7 @@ namespace GameOfLife
         //overriding
         public override void stepSimulate()
         {
-            int[,] neighs = new int[width, height];
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    neighs[x, y] = countAliveNeighbours(new coord(x, y));
-                }
-            }
+            int[,] neighs = AliveNeighbourMap();
             for (int x = 0; x < width; x++)
             {
                 Parallel.For(0, height,

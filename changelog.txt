@@ -1,6 +1,10 @@
 --Beta 1.4--
 New features:
 * Line generator map
+* Crystal generator map
+
+Changes:
+* Inheritance cleanup of cell automata neighbour method
 
 Fixes:
 * Place line method bugfixed for horizontal and vertical lines
