@@ -23,7 +23,7 @@ See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of
 
 ## Version
 
-##### beta 1.3.1
+##### beta 1.4
 
 See the [changelog](changelog.txt) for details.
 
