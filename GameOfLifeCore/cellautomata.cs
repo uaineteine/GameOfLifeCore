@@ -23,21 +23,21 @@ namespace GameOfLife
 
         void checkLoop(ref coord p)
         {
-            if (p.x >= width)
-            {
-                p.x -= width;
-            }
-            if (p.y >= height)
-            {
-                p.y -= height;
-            }
             if (p.x < 0)
             {
                 p.x += width;
             }
+            else if (p.x >= width)
+            {
+                p.x -= width;
+            }
             if (p.y < 0)
             {
                 p.y += height;
+            }
+            else if (p.y >= height)
+            {
+                p.y -= height;
             }
         }
 

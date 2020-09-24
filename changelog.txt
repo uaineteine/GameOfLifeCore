@@ -5,6 +5,7 @@ New Features:
 
 Changes:
 * Inheritance cleanup
+* Checkloop updated with else statements to save on check time
 
 Fixes:
 * Now the new map is overrided after calculating neighbours, not during
