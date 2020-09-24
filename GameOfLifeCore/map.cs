@@ -41,12 +41,12 @@ namespace GameOfLife
         protected void randomiseMap()
         {
             aliveCount = 0;
-            Random rndm = new Random();
+            Random rand = new Random();
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    float val = (float)rndm.NextDouble();
+                    float val = (float)rand.NextDouble();
                     if (val < cStartAlive)
                     {
                         grid[x][y].alive = false;
