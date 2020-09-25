@@ -1,21 +1,30 @@
-﻿using System;
+﻿using Coord;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Coord;
 
 namespace GameOfLife
 {
-    public class gamelife : cellautomata
+    public class CrystalGen : LineGenerator
     {
-        public gamelife(int w, int h, bool wrap, float cStartAlive) : base(w, h, wrap, cStartAlive)
+        protected int variation;
+
+        public CrystalGen(int w, int h, bool wrap, float cStartAlive, int nLines, int var) : base(w, h, wrap, cStartAlive, nLines)
         {
             //add things here
+            base.stepSimulate();
+
+            variation = var;
         }
 
-        //overriding
         public override void stepSimulate()
         {
+            if (variation == 1)
+            {
+                base.stepSimulate();
+            }
+
             int[,] neighs = AliveNeighbourMap();
             for (int x = 0; x < width; x++)
             {
@@ -23,22 +32,9 @@ namespace GameOfLife
                y =>
                {
                    int nalive = neighs[x, y];
-                   if (grid[x][y].alive)
+                   if (!grid[x][y].alive)
                    {
-                       if (nalive == 2 | nalive == 3)      //survives
-                           {
-                               //keep alive
-                               grid[x][y].update(true);
-                       }
-                       else                                //dies
-                           {
-                           aliveCount -= 1;
-                           grid[x][y].update(false);
-                       }
-                   }
-                   else  //dead cell at the mo
-                       {
-                       if (nalive == 3)
+                       if (nalive == 2)
                        {
                            aliveCount += 1;
                            grid[x][y].update(true);

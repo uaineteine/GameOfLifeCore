@@ -41,42 +41,67 @@ namespace GameOfLife
             }
         }
 
-        public void PlaceLine(coord p, Random rand)
+        public void PlaceLine(coord p, Random rand, int len, int dir, bool posneg)
         {
-            int type = rand.Next() % 6;
-            int len = rand.Next() % 7;
             for (int j = 0; j < len; j++)
             {
-                coord newp = p;
-                switch(type)
+                coord newp = new coord(p.x, p.y);
+                if (dir == 0)
                 {
-                    case 0:
-                        newp += j;
-                        break;
-
-                    case 1:
-                        newp -= j;
-                        break;
-
-                    case 2:
+                    if (posneg)
                         newp.x += j;
-                        break;
-
-                    case 3:
+                    else
                         newp.x -= j;
-                        break;
-
-                    case 4:
-                        newp.y += j;
-                        break;
-
-                    case 6:
-                        newp.y -= j;
-                        break;
                 }
+                else if (dir == 1)
+                {
+                    if (posneg)
+                        newp.y += j;
+                    else
+                        newp.y -= j;
+                }
+                else
+                {
+                    if (posneg)
+                        newp += j;
+                    else
+                        newp -= j;
+                }
+                        
                 checkLoop(ref newp);
-                grid[newp.x][newp.y].update(true);
+                if (!grid[newp.x][newp.y].alive)
+                {
+                    grid[newp.x][newp.y].update(true);
+                    aliveCount += 1;
+                }
             }
+        }
+
+        protected void ClearRow(int rown)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                grid[x][rown].update(false);
+            }
+        }
+
+        public void PlaceLine(coord p, Random rand, int len)
+        {
+            int dir = rand.Next() % 3;
+            int posneg = rand.Next() % 2;
+            if (posneg == 0)
+            {
+                PlaceLine(p, rand, len, dir, false);
+            }
+            else
+            {
+                PlaceLine(p, rand, len, dir, true);
+            }
+        }
+
+        public void PlaceLine(coord p, Random rand)
+        {
+            PlaceLine(p, rand, rand.Next() % 7);
         }
 
         public float aliveFac()
@@ -137,6 +162,19 @@ namespace GameOfLife
             }
             //no alive cells found
             return extinct;
+        }
+
+        protected int[,] AliveNeighbourMap()
+        {
+            int[,] neighs = new int[width, height];
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    neighs[x, y] = countAliveNeighbours(new coord(x, y));
+                }
+            }
+            return neighs;
         }
 
         public virtual void stepSimulate()

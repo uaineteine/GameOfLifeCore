@@ -1,3 +1,15 @@
+--Beta 1.4--
+New features:
+* Line generator map
+* Crystal generator map
+* Snow generator map
+
+Changes:
+* Inheritance cleanup of cell automata neighbour method
+
+Fixes:
+* Place line method bugfixed for horizontal and vertical lines
+
 --Beta 1.3--	23/09/2020
 New Features:
 * Added parallel loop for the steps
