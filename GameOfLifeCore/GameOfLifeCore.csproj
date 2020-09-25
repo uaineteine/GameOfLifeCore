@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Daniel Stamer-Squair</Authors>
+    <Copyright>Copyright © 2020 Daniel Stamer-Squair</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

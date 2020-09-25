@@ -8,14 +8,22 @@ namespace GameOfLife
 {
     public class CrystalGen : LineGenerator
     {
-        public CrystalGen(int w, int h, bool wrap, float cStartAlive, int nLines) : base(w, h, wrap, cStartAlive, nLines)
+        protected int variation;
+
+        public CrystalGen(int w, int h, bool wrap, float cStartAlive, int nLines, int var) : base(w, h, wrap, cStartAlive, nLines)
         {
             //add things here
+            base.stepSimulate();
+
+            variation = var;
         }
 
         public override void stepSimulate()
         {
-            base.stepSimulate();
+            if (variation == 1)
+            {
+                base.stepSimulate();
+            }
 
             int[,] neighs = AliveNeighbourMap();
             for (int x = 0; x < width; x++)

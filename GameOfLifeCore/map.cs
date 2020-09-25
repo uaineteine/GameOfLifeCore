@@ -38,6 +38,18 @@ namespace GameOfLife
             return grid[p.x][p.y].alive;
         }
 
+        public bool isNew(coord p)
+        {
+            if (grid[p.x][p.y].HasChanged())
+            {
+                if (isAlive(p))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         protected void randomiseMap()
         {
             aliveCount = 0;

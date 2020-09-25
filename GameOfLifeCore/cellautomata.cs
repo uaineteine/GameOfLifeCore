@@ -77,6 +77,14 @@ namespace GameOfLife
             }
         }
 
+        protected void ClearRow(int rown)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                grid[x][rown].update(false);
+            }
+        }
+
         public void PlaceLine(coord p, Random rand, int len)
         {
             int dir = rand.Next() % 3;
