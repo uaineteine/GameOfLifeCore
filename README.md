@@ -17,13 +17,11 @@ A C# .NET standard project automaton of Conway's Game of Life.
 
 See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of the cellular maps.
 
-#### Requires projects:
+#### This project is packaged with libraries:
 
-* [CoordLibrary](https://bitbucket.org/uaineteinestudio/coordlibrary/) by [UaineTeine](https://bitbucket.org/uaineteinestudio/) - A coordinate library with extra functions
+* CoordLibrary [github](https://github.com/uaineteine/Coord) | [bitbucket](https://bitbucket.org/uaineteinestudio/coordlibrary/) (v1.2) by [UaineTeine](https://bitbucket.org/uaineteinestudio/) - A coordinate library with extra functions
 
-## Version
-
-##### beta 1.4
+#### Version beta 1.5
 
 See the [changelog](changelog.txt) for details.
 

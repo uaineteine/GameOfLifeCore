@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Coord;
+using Uaine.Coord;
 
-namespace GameOfLife
+namespace Uaine.GameOfLife.Core
 {
     public class map
     {

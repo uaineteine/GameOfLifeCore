@@ -1,6 +1,7 @@
 ﻿using System;
+using Uaine.GameOfLife.Core;
 
-namespace GameOfLife
+namespace Uaine.GameOfLife.ConsoleApp
 {
     class Program
     {

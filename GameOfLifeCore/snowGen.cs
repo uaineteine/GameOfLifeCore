@@ -1,9 +1,9 @@
-﻿using Coord;
+﻿using Uaine.Coord;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameOfLife
+namespace Uaine.GameOfLife.Core
 {
     public class snowGen : cellautomata
     {

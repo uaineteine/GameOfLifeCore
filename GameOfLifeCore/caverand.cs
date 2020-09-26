@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameOfLife
+namespace Uaine.GameOfLife.Core
 {
     public class caverand : cave
     {

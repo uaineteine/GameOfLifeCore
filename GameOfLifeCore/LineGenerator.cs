@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Coord;
+using Uaine.Coord;
 
-namespace GameOfLife
+namespace Uaine.GameOfLife.Core
 {
     public class LineGenerator : cellautomata
     {

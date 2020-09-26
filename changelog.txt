@@ -1,4 +1,10 @@
---Beta 1.4--
+--Beta 1.5--
+Changes:
+* Coord imported as Nuget package
+* Namespace changes
+* Assembly info updates
+
+--Beta 1.4--	24/09/2020
 New features:
 * Line generator map
 * Crystal generator map
