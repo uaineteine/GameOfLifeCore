@@ -2,7 +2,7 @@
 
 A C# .NET standard project automaton of Conway's Game of Life.
 
-![Example](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/1986ffa1a182a6f749c86d0929092eeb9c4c0317/Example/OrangeTheme.png "Graphic Example")
+![Example](https://raw.githubusercontent.com/uaineteine/GameOfLifeCore/beta1_5/Example/GOL2.png "Graphic Example")
 
 ![ConsoleExample](https://bitbucket.org/uaineteinestudio/gameoflifecore/raw/1986ffa1a182a6f749c86d0929092eeb9c4c0317/Example/ExampleConsole.png "Console Example")
 
@@ -28,6 +28,12 @@ See the [changelog](changelog.txt) for details.
 ## Authors
 
 * **Daniel Stamer-Squair** - *UaineTeine*
+* 
+Copyright © 2020-2021 Daniel Stamer-Squair
+
+## Donate
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C43PQ0I)
 
 ## License
 
