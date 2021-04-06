@@ -1,13 +1,17 @@
 ﻿using System;
 using Uaine.GameOfLife.Core;
+using Uaine.Platforms;
+using Version = Uaine.VersionController.Version;
 
 namespace Uaine.GameOfLife.ConsoleApp
 {
     class Program
     {
+        static Version ver = new Version(new int[] { 1, 5, 1 }, "Beta", false);
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Console.WriteLine(ver.ToStr());
 
             //get user input
             Console.WriteLine("Wrap so borders are looped? (y/n)");

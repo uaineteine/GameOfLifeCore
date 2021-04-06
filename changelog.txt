@@ -1,3 +1,8 @@
+--Beta 1.5.1--	06/02/2021
+Changes:
+* Update packagesp
+* Using platforms and version packages
+
 --Beta 1.5--	23/02/2021
 Changes:
 * Coord imported as Nuget package
