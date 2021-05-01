@@ -4,14 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Daniel Stamer-Squair</Authors>
     <Copyright>Copyright © 2020 Daniel Stamer-Squair</Copyright>
-    <RootNamespace>Uaine.GameOfLife.Core</RootNamespace>
-    <AssemblyName>Uaine.GameOfLife.Core</AssemblyName>
+    <RootNamespace>Uaine.CellularAutomata</RootNamespace>
+    <AssemblyName>Uaine.CellularAutomata</AssemblyName>
     <Version>0.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Uaine.Coord" Version="1.3.0" />
-    <PackageReference Include="Uaine.VersionController" Version="1.0.2" />
+    <PackageReference Include="Uaine.Objects" Version="1.2.0.1" />
   </ItemGroup>
 
 </Project>

@@ -24,10 +24,11 @@
 
   <ItemGroup>
     <PackageReference Include="Uaine.Platforms" Version="1.0.3" />
+    <PackageReference Include="Uaine.VersionController" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameOfLifeCore\GameOfLifeCore.csproj" />
+    <ProjectReference Include="..\GameOfLifeCore\Uaine.CellularAutomata.csproj" />
   </ItemGroup>
 
 </Project>
