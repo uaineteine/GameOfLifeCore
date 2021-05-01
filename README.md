@@ -1,6 +1,6 @@
-# GameOfLifeDotnetCore
+# Uaine.CA
 
-A C# .NET standard project automaton of Conway's Game of Life.
+A C# .NET standard project of a CA library and automaton of Conway's Game of Life.
 
 ![Example](https://raw.githubusercontent.com/uaineteine/GameOfLifeCore/beta1_5/Example/GOL2.png "Graphic Example")
 
@@ -22,8 +22,9 @@ See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of
 * Uaine.Coord [github](https://github.com/uaineteine/Coord) | [bitbucket](https://bitbucket.org/uaineteinestudio/coordlibrary/) (v1.3) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 * Uaine.Version (v1.0.2) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 * Uaine.Platforms (v1.0.3) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
+* Uaine.Objects (1.2.0.1) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 
-#### Version beta 1.5.1
+#### Version beta 2.0
 
 See the [changelog](changelog.txt) for details.
 
