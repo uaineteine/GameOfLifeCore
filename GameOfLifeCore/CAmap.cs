@@ -102,25 +102,42 @@ namespace Uaine.CellularAutomata
                 for (int y = 0; y < Height; y++)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    if (CMap.cells[x, y])
+                    if (printChanges)
                     {
-                        if (printChanges)
-                            if (CMap.cells[x, y].HasChanged())
+                            if (NewlyBorn(x, y))
                                 Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write(1);
                     }
                     else
                     {
                         if (printChanges)
-                            if (CMap.cells[x, y].HasChanged())
+                            if (NewlyDead(x, y))
                                 Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(0);
                     }
+                    Console.Write(CMap.cells[x, y]);
                 }
                 Console.Write(System.Environment.NewLine);
             }
             Console.ForegroundColor = ConsoleColor.White;
         }
+        private bool NewlyDead(int x, int y)
+        {
+            foreach (coord item in newDead)
+            {
+                if (item.x == x && item.y == y)
+                    return true;
+            }
+            return false;
+        }
+        private bool NewlyBorn(int x, int y)
+        {
+            foreach (coord item in newBorn)
+            {
+                if (item.x == x && item.y == y)
+                    return true;
+            }
+            return false;
+        }
+
         protected int countAliveNeighbours(coord pos)
         {
             //0111
@@ -229,6 +246,8 @@ namespace Uaine.CellularAutomata
 
         public virtual void stepSimulate()
         {
+            //clear history
+            ClearHistory();
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
@@ -245,6 +264,7 @@ namespace Uaine.CellularAutomata
                         {
                             aliveCount -= 1;
                             CMap.cells[x, y] =(false);
+                            newDead.Add(new coord(x, y));
                         }
                     }
                     else  //dead cell at the mo
@@ -253,6 +273,7 @@ namespace Uaine.CellularAutomata
                         {
                             aliveCount += 1;
                             CMap.cells[x, y]=(true);
+                            newBorn.Add(new coord(x, y));
                         }
                         else
                         {
@@ -261,6 +282,12 @@ namespace Uaine.CellularAutomata
                     }
                 }
             }
+        }
+
+        private void ClearHistory()
+        {
+            newBorn = new List<coord>();
+            newDead = new List<coord>();
         }
 
         public void SkipSimulate(int noSteps, bool printChanges)
