@@ -31,7 +31,7 @@ See the [changelog](changelog.txt) for details.
 ## Authors
 
 * **Daniel Stamer-Squair** - *UaineTeine*
-* 
+
 Copyright © 2020-2021 Daniel Stamer-Squair
 
 ## Donate
