@@ -1,13 +1,12 @@
 ﻿using System;
-using Uaine.GameOfLife.Core;
-using Uaine.Platforms;
+using Uaine.CellularAutomata;
 using Version = Uaine.VersionController.Version;
 
 namespace Uaine.GameOfLife.ConsoleApp
 {
     class Program
     {
-        static Version ver = new Version(new int[] { 1, 5, 1 }, "Beta", false);
+        static Version ver = new Version(new int[] { 2, 0 }, "Beta", false);
         static void Main(string[] args)
         {
 
@@ -34,7 +33,8 @@ namespace Uaine.GameOfLife.ConsoleApp
             Console.WriteLine();
 
             //load it
-            gamelife ca = new gamelife(35, 35, wraped, 0.2f);
+            CASettings set = new CASettings(wraped, 0.2f);
+            gamelife ca = new gamelife(35, 35, set);
 
             //simulate
             //ca.SkipSimulate(noSteps, printChanges);

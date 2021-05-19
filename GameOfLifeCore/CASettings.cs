@@ -8,5 +8,11 @@ namespace Uaine.CellularAutomata
     {
         public float ChanceStartAlive;
         public bool wrapping;    //if the edges should be wrapped
+
+        public CASettings(bool wrapping, float chanceStartAlive)
+        {
+            ChanceStartAlive = chanceStartAlive;
+            this.wrapping = wrapping;
+        }
     }
 }

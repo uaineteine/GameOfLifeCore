@@ -1,16 +1,13 @@
-﻿using Uaine.Coord;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Uaine.Coord;
 
-namespace Uaine.GameOfLife.Core
+namespace Uaine.CellularAutomata
 {
     public class CrystalGen : LineGenerator
     {
         protected int variation;
 
-        public CrystalGen(int w, int h, bool wrap, float cStartAlive, int nLines, int var) : base(w, h, wrap, cStartAlive, nLines)
+        public CrystalGen(int w, int h, CASettings settings, int nLines, int var) : base(w, h, settings, nLines)
         {
             //add things here
             base.stepSimulate();
@@ -26,22 +23,23 @@ namespace Uaine.GameOfLife.Core
             }
 
             int[,] neighs = AliveNeighbourMap();
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                Parallel.For(0, height,
+                Parallel.For(0, Height,
                y =>
                {
                    int nalive = neighs[x, y];
-                   if (!grid[x][y].alive)
+                   if (!CMap.cells[x, y])
                    {
                        if (nalive == 2)
                        {
                            aliveCount += 1;
-                           grid[x][y].update(true);
+                           CMap.cells[x, y] = (true);
+                           newBorn.Add(new coord(x, y));
                        }
                        else
                        {
-                           grid[x][y].update(false);
+                           CMap.cells[x, y] = (false);
                        }
                    }
                });

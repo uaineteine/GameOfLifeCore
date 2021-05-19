@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Uaine.Coord;
 
-namespace Uaine.GameOfLife.Core
+namespace Uaine.CellularAutomata
 {
-    public class cave : cellautomata
+    public class cave : CAmap
     {
-        public cave(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive)
+        public cave(int w, int h, CASettings settings, int birthlim, int deathlim, Random rndm) : base(w, h, settings)
         {
             birthlimit = birthlim;
             deathlimit = deathlim;
@@ -24,22 +22,23 @@ namespace Uaine.GameOfLife.Core
         public override void stepSimulate()
         {
             int[,] neighs = AliveNeighbourMap();
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                Parallel.For(0, height,
+                Parallel.For(0, Height,
                y =>
                {
                    int nalive = neighs[x, y];
-                   if (grid[x][y].alive)
+                   if (CMap.cells[x, y])
                    {
                        if (nalive < deathlimit)            //dies
                        {
                            aliveCount -= 1;
-                           grid[x][y].update(false);
+                           CMap.cells[x, y] = (false);
+                           newDead.Add(new coord(x, y));
                        }
                        else                                //survives
                        {
-                           grid[x][y].update(true);
+                           CMap.cells[x, y] = (true);
                        }
                    }
                    else  //dead cell at the mo
@@ -47,11 +46,12 @@ namespace Uaine.GameOfLife.Core
                        if (nalive > birthlimit)
                        {
                            aliveCount += 1;
-                           grid[x][y].update(true);
+                           CMap.cells[x, y] = (true);
+                           newBorn.Add(new coord(x, y));
                        }
                        else
                        {
-                           grid[x][y].update(false);
+                           CMap.cells[x, y] = (false);
                        }
                        if (nalive >= treasureHiddenLimit)
                        {

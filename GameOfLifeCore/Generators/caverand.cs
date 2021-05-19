@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Uaine.Coord;
 
-namespace Uaine.GameOfLife.Core
+namespace Uaine.CellularAutomata
 {
     public class caverand : cave
     {
-        public caverand(int w, int h, bool wrap, float cStartAlive, int birthlim, int deathlim, Random rndm) : base(w, h, wrap, cStartAlive, birthlim, deathlim, rndm)
+        public caverand(int w, int h, CASettings settings, int birthlim, int deathlim, Random rndm) : base(w, h, settings, birthlim, deathlim, rndm)
         {
             rand = rndm;
         }
@@ -21,13 +20,14 @@ namespace Uaine.GameOfLife.Core
 
             for (int i = 0; i < randomCells; i++)
             {
-                int x = rand.Next() % width;
-                int y = rand.Next() % height;
-                
-                if (grid[x][y].alive)
+                int x = rand.Next() % Width;
+                int y = rand.Next() % Height;
+
+                if (CMap.cells[x, y])
                 {
                     aliveCount -= 1;
-                    grid[x][y].update(false);
+                    CMap.cells[x, y] = (false);
+                    newDead.Add(new coord(x, y));
                 }
             }
         }

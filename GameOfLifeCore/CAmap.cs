@@ -89,7 +89,7 @@ namespace Uaine.CellularAutomata
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    neighs[x, y] = countAliveNeighbours(new coord(x, y));
+                    neighs[x, y] = countAliveNeighbours(x, y);
                 }
             }
             return neighs;
@@ -113,11 +113,18 @@ namespace Uaine.CellularAutomata
                             if (NewlyDead(x, y))
                                 Console.ForegroundColor = ConsoleColor.Red;
                     }
-                    Console.Write(CMap.cells[x, y]);
+                    printCell(x, y);
                 }
                 Console.Write(System.Environment.NewLine);
             }
             Console.ForegroundColor = ConsoleColor.White;
+        }
+        private void printCell(int x, int y)
+        {
+            if (CMap.cells[x, y])
+                Console.Write("1");
+            else
+                Console.Write("0");
         }
         private bool NewlyDead(int x, int y)
         {
@@ -138,7 +145,7 @@ namespace Uaine.CellularAutomata
             return false;
         }
 
-        protected int countAliveNeighbours(coord pos)
+        protected int countAliveNeighbours(int x, int y)
         {
             //0111
             //01x1
@@ -146,9 +153,10 @@ namespace Uaine.CellularAutomata
             //0000
 
             int sum = 0;
+            coord p = new coord(x, y);
             for (int i = 0; i < nNeighs; i++)
             {
-                coord neigh = neighlist[i] + pos;
+                coord neigh = neighlist[i] + p;
                 checkLoop(ref neigh);
                 if (CMap.cells[neigh.x, neigh.y])
                     sum += 1;       //alive so count it
@@ -200,6 +208,7 @@ namespace Uaine.CellularAutomata
                 if (!CMap.cells[newp.x, newp.y])
                 {
                     CMap.cells[newp.x, newp.y] = true;
+                    newBorn.Add(newp);
                     aliveCount += 1;
                 }
             }
@@ -236,6 +245,9 @@ namespace Uaine.CellularAutomata
             for (int i = 0; i < noSteps; i++)
             {
                 Print(printChanges);
+                //clear history
+                ClearHistory();
+                //simstep
                 stepSimulate();
 
                 Console.WriteLine("Press enter to continue");
@@ -246,13 +258,11 @@ namespace Uaine.CellularAutomata
 
         public virtual void stepSimulate()
         {
-            //clear history
-            ClearHistory();
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    int nalive = countAliveNeighbours(new coord(x, y));
+                    int nalive = countAliveNeighbours(x, y);
                     if (CMap.cells[x, y])
                     {
                         if (nalive == 2 | nalive == 3)      //survives

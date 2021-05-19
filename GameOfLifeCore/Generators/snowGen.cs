@@ -1,13 +1,12 @@
-﻿using Uaine.Coord;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using Uaine.CellularAutomata;
+using Uaine.Coord;
 
-namespace Uaine.GameOfLife.Core
+namespace Uaine.CellularAutomata
 {
-    public class snowGen : cellautomata
+    public class snowGen : CAmap
     {
-        public snowGen(int w, int h, bool wrap, Random rndm) : base(w, h, wrap, 1f)
+        public snowGen(int w, int h, CASettings settings, Random rndm) : base(w, h, settings)
         {
             rand = rndm;
         }
@@ -18,20 +17,21 @@ namespace Uaine.GameOfLife.Core
         protected void AddDropTop(int x)
         {
             aliveCount += 1;
-            grid[x][0].update(true);
+            CMap.cells[x, 0] = (true);
+            newBorn.Add(new coord(x, 0));
         }
 
         protected void shiftRowDown(int y)
         {
             if (boundCheck(new coord(0, y)))
             {
-                for (int x = 0; x < width; x++)
+                for (int x = 0; x < Width; x++)
                 {
-                    if (grid[x][y].alive)
+                    if (CMap.cells[x, y])
                     {
                         //shift it down
-                        grid[x][y + 1].update(true);
-                        grid[x][y].update(false);
+                        CMap.cells[x, y+1] = (true);
+                        CMap.cells[x, y] = (false);
                     }
                 }
             }
@@ -42,16 +42,16 @@ namespace Uaine.GameOfLife.Core
             int noSnow = rand.Next() % maxSnow;
 
             //delete bottom row first
-            ClearRow(height - 1);
+            ClearRow(Height - 1);
 
-            for (int y = height - 1; y > - 1; y--)
+            for (int y = Height - 1; y > - 1; y--)
             {
                 shiftRowDown(y);
             }
 
             for (int i = 0; i < noSnow; i++)
             {
-                int x = rand.Next() % width;
+                int x = rand.Next() % Width;
                 AddDropTop(x);
             }
         }

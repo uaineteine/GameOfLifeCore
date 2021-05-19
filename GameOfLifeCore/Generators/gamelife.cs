@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Uaine.Coord;
 
-namespace Uaine.GameOfLife.Core
+namespace Uaine.CellularAutomata
 {
-    public class gamelife : cellautomata
+    public class gamelife : CAmap
     {
-        public gamelife(int w, int h, bool wrap, float cStartAlive) : base(w, h, wrap, cStartAlive)
+        public gamelife(int w, int h, CASettings settings) : base(w, h, settings)
         {
             //add things here
         }
@@ -17,23 +14,23 @@ namespace Uaine.GameOfLife.Core
         public override void stepSimulate()
         {
             int[,] neighs = AliveNeighbourMap();
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                Parallel.For(0, height,
+                Parallel.For(0, Height,
                y =>
                {
                    int nalive = neighs[x, y];
-                   if (grid[x][y].alive)
+                   if (CMap.cells[x, y])
                    {
                        if (nalive == 2 | nalive == 3)      //survives
-                           {
-                               //keep alive
-                               grid[x][y].update(true);
+                       {
+                           //keep alive
                        }
                        else                                //dies
-                           {
+                       {
                            aliveCount -= 1;
-                           grid[x][y].update(false);
+                           CMap.cells[x, y] = (false);
+                           newDead.Add(new coord(x, y));
                        }
                    }
                    else  //dead cell at the mo
@@ -41,11 +38,12 @@ namespace Uaine.GameOfLife.Core
                        if (nalive == 3)
                        {
                            aliveCount += 1;
-                           grid[x][y].update(true);
+                           CMap.cells[x, y] = (true);
+                           newBorn.Add(new coord(x, y));
                        }
                        else
                        {
-                           grid[x][y].update(false);
+                           //stay dead
                        }
                    }
                });
