@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Uaine.Coord" Version="1.3.2" />
-    <PackageReference Include="Uaine.Objects" Version="1.4.0" />
+    <PackageReference Include="Uaine.Objects" Version="1.5.0" />
   </ItemGroup>
 
 </Project>
