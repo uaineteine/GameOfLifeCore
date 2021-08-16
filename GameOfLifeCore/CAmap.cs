@@ -4,11 +4,13 @@ using System.Text;
 using Uaine.Coord;
 using Uaine.Objects.Maps;
 using Uaine.Objects.Primitives.Shapes;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
     public class CAmap : IntRectangle
     {
+        public URandom rand;
         public BoolMap CMap;
         public CASettings Settings;
         protected List<coord> newBorn = new List<coord>();
@@ -18,17 +20,17 @@ namespace Uaine.CellularAutomata
         internal const int nNeighs = 8;
         internal static readonly coord[] neighlist = new coord[nNeighs] { new coord(-1, 0), new coord(0, 1), new coord(1, 0), new coord(0, -1),
             new coord(-1, -1), new coord(1, -1), new coord(-1, 1), new coord(1, 1)};
-        public CAmap(int width, int height, CASettings settings) : base(width, height)
+        public CAmap(int width, int height, CASettings settings, URandom rnd) : base(width, height)
         {
             CMap = new BoolMap(width, height, false);
             Settings = settings;
+            rand = rnd;
             Initalise();
         }
         public void Initalise() //called on const
         {
             aliveCount = 0;
             //consider chance to start alive
-            Random rand = new Random();
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
@@ -177,7 +179,7 @@ namespace Uaine.CellularAutomata
             //no alive cells found
             return extinct;
         }
-        public void PlaceLine(coord p, Random rand, int len, int dir, bool posneg)
+        public void PlaceLine(coord p, int len, int dir, bool posneg)
         {
             for (int j = 0; j < len; j++)
             {
@@ -221,23 +223,23 @@ namespace Uaine.CellularAutomata
             }
         }
 
-        public void PlaceLine(coord p, Random rand, int len)
+        public void PlaceLine(coord p, int len)
         {
             int dir = rand.Next() % 3;
             int posneg = rand.Next() % 2;
             if (posneg == 0)
             {
-                PlaceLine(p, rand, len, dir, false);
+                PlaceLine(p, len, dir, false);
             }
             else
             {
-                PlaceLine(p, rand, len, dir, true);
+                PlaceLine(p, len, dir, true);
             }
         }
 
-        public void PlaceLine(coord p, Random rand)
+        public void PlaceLine(coord p)
         {
-            PlaceLine(p, rand, rand.Next() % 7);
+            PlaceLine(p, rand.Next() % 7);
         }
 
         public void Simulate(int noSteps, bool printChanges)

@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Uaine.Coord;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
     public class cave : CAmap
     {
-        public cave(int w, int h, CASettings settings, int birthlim, int deathlim, Random rndm) : base(w, h, settings)
+        public cave(int w, int h, CASettings settings, int birthlim, int deathlim, URandom rndm) : base(w, h, settings, rndm)
         {
             birthlimit = birthlim;
             deathlimit = deathlim;
             rand = rndm;
         }
 
-        Random rand;
         int birthlimit;
         int deathlimit;
         int treasureHiddenLimit = 5;
@@ -56,7 +56,7 @@ namespace Uaine.CellularAutomata
                        if (nalive >= treasureHiddenLimit)
                        {
                            //place treasure
-                           PlaceLine(new coord(x, y), rand);
+                           PlaceLine(new coord(x, y));
                        }
                    }
                });

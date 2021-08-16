@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Uaine.Coord;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
@@ -7,7 +8,7 @@ namespace Uaine.CellularAutomata
     {
         protected int variation;
 
-        public CrystalGen(int w, int h, CASettings settings, int nLines, int var) : base(w, h, settings, nLines)
+        public CrystalGen(int w, int h, CASettings settings, int nLines, int var, URandom rndm) : base(w, h, settings, nLines, rndm)
         {
             //add things here
             base.stepSimulate();

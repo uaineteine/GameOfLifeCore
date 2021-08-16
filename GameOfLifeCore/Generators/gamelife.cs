@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Uaine.Coord;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
     public class gamelife : CAmap
     {
-        public gamelife(int w, int h, CASettings settings) : base(w, h, settings)
+        public gamelife(int w, int h, CASettings settings, URandom rndm) : base(w, h, settings, rndm)
         {
             //add things here
         }

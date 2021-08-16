@@ -1,17 +1,17 @@
 ﻿using System;
 using Uaine.Coord;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
     public class caverand : cave
     {
-        public caverand(int w, int h, CASettings settings, int birthlim, int deathlim, Random rndm) : base(w, h, settings, birthlim, deathlim, rndm)
+        public caverand(int w, int h, CASettings settings, int birthlim, int deathlim, URandom rndm) : base(w, h, settings, birthlim, deathlim, rndm)
         {
             rand = rndm;
         }
 
         int randomCells = 40;
-        Random rand;
 
         //override the previous but add something new
         public override void stepSimulate()

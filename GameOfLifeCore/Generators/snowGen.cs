@@ -1,17 +1,17 @@
 ﻿using System;
 using Uaine.CellularAutomata;
 using Uaine.Coord;
+using Uaine.Random;
 
 namespace Uaine.CellularAutomata
 {
     public class snowGen : CAmap
     {
-        public snowGen(int w, int h, CASettings settings, Random rndm) : base(w, h, settings)
+        public snowGen(int w, int h, CASettings settings, URandom rndm) : base(w, h, settings, rndm)
         {
             rand = rndm;
         }
 
-        Random rand;
         int maxSnow = 4;
 
         protected void AddDropTop(int x)

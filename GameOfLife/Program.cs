@@ -1,5 +1,6 @@
 ﻿using System;
 using Uaine.CellularAutomata;
+using Uaine.Random;
 using Version = Uaine.VersionController.Version;
 
 namespace Uaine.GameOfLife.ConsoleApp
@@ -34,7 +35,8 @@ namespace Uaine.GameOfLife.ConsoleApp
 
             //load it
             CASettings set = new CASettings(wraped, 0.2f);
-            gamelife ca = new gamelife(35, 35, set);
+            URandom rand = new URandom();
+            gamelife ca = new gamelife(35, 35, set, rand);
 
             //simulate
             //ca.SkipSimulate(noSteps, printChanges);
