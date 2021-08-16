@@ -19,10 +19,10 @@ See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of
 
 #### This project is packaged with libraries:
 
-* Uaine.Coord [github](https://github.com/uaineteine/Coord) | [bitbucket](https://bitbucket.org/uaineteinestudio/coordlibrary/) (v1.3) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
+* Uaine.Coord [github](https://github.com/uaineteine/Coord) | [bitbucket](https://bitbucket.org/uaineteinestudio/coordlibrary/) (v1.3.2) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 * Uaine.Version (v1.0.2) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
-* Uaine.Platforms (v1.0.3) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
-* Uaine.Objects (1.2.0.1) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
+* Uaine.Platforms (v1.0.4) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
+* Uaine.Objects (1.6) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 
 #### Version beta 2.0
 

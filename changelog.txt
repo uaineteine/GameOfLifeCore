@@ -1,6 +1,7 @@
 --Beta 2.0--
 * Rebuilt cellular automata maps with uaine.objects
 * No tracking history as a whole map but individual arrays of co-ordinates for new births and deaths
+* printing fix on changes
 
 --Beta 1.5.1--	06/02/2021
 Changes:

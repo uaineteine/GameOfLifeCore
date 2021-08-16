@@ -106,14 +106,10 @@ namespace Uaine.CellularAutomata
                     Console.ForegroundColor = ConsoleColor.White;
                     if (printChanges)
                     {
-                            if (NewlyBorn(x, y))
-                                Console.ForegroundColor = ConsoleColor.Green;
-                    }
-                    else
-                    {
-                        if (printChanges)
-                            if (NewlyDead(x, y))
-                                Console.ForegroundColor = ConsoleColor.Red;
+                        if (NewlyBorn(x, y))
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        if (NewlyDead(x, y))
+                            Console.ForegroundColor = ConsoleColor.Red;
                     }
                     printCell(x, y);
                 }

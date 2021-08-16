@@ -34,7 +34,7 @@ namespace Uaine.GameOfLife.ConsoleApp
             Console.WriteLine();
 
             //load it
-            CASettings set = new CASettings(wraped, 0.2f);
+            CASettings set = new CASettings(wraped, 0.4f);
             URandom rand = new URandom();
             gamelife ca = new gamelife(35, 35, set, rand);
 
