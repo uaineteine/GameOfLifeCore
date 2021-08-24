@@ -24,7 +24,7 @@ See the [Program.cs](GameOfLife/Program.cs) file for execution and simulation of
 * Uaine.Platforms (v1.0.4) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 * Uaine.Objects (1.6) by [UaineTeine](https://bitbucket.org/uaineteinestudio/)
 
-#### Version beta 2.0
+#### Version beta 2.0.1
 
 See the [changelog](changelog.txt) for details.
 

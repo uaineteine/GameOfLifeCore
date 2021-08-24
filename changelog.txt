@@ -1,3 +1,6 @@
+--Beta 2.0.1--
+* Public alive neighbour map
+
 --Beta 2.0--
 * Rebuilt cellular automata maps with uaine.objects
 * No tracking history as a whole map but individual arrays of co-ordinates for new births and deaths

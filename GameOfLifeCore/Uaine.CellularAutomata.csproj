@@ -6,7 +6,7 @@
     <Copyright>Copyright © 2020-2021 Daniel Stamer-Squair</Copyright>
     <RootNamespace>Uaine.CellularAutomata</RootNamespace>
     <AssemblyName>Uaine.CellularAutomata</AssemblyName>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <Description>A simple CA algorthim</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>

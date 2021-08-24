@@ -84,7 +84,7 @@ namespace Uaine.CellularAutomata
         {
             return boundCheck(p.x, p.y);
         }
-        protected int[,] AliveNeighbourMap()
+        public int[,] AliveNeighbourMap()
         {
             int[,] neighs = new int[Width, Height];
             for (int x = 0; x < Width; x++)
